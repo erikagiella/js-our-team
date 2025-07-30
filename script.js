@@ -36,3 +36,53 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+
+// Seleziono il container per i membri del team
+const teamContainer = document.getElementById("team-container");
+// Chiamo la funzione per renderizzare i membri del team
+printTeamMembers();
+
+
+// Ciclo l'array teamMembers e stampo i dati in console
+for (let key in teamMembers) {
+  const member = teamMembers[key];
+  console.log(`Nome: ${member.name}, Ruolo: ${member.role}, Email: ${member.email}`);
+  creaTeamMemberCard(member);
+}
+
+
+// Funzione che crea una card per ogni membro del team
+function creaTeamMemberCard(member) {
+  return `
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card w-100">
+        <div class="d-flex align-items-center p-3">
+          <img src="${member.img}" alt="${member.name}" >
+          <div>
+            <h5 class="card-title mb-1">${member.name}</h5>
+            <p class="card-text mb-1">${member.role}</p>
+            <a href="mailto:${member.email}" class="btn btn-primary btn-sm">${member.email}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Funzione che stampa le card dei membri del team nel container
+function printTeamMembers() {
+  let row = `
+    <div class="container">
+      <div class="row justify-content-center">
+  `;
+  for (let key in teamMembers) {
+    const member = teamMembers[key];
+    row += creaTeamMemberCard(member);
+  };
+  row += `
+      </div>
+    </div>
+  `;
+  teamContainer.innerHTML = row;
+}
