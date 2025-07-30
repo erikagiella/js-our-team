@@ -51,37 +51,50 @@ for (let key in teamMembers) {
 }
 
 
+// Gestione form aggiunta membro
+const addMemberForm = document.getElementById('add-member-form');
+// Aggiungo un event listener al form per gestire l'invio
+addMemberForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const role = document.getElementById('role').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const img = document.getElementById('img').value.trim();
+
+  if (name && role && email && img) {
+    teamMembers.push({ name, role, email, img });
+    printTeamMembers();
+    this.reset();
+  }
+});
+
+
 // Funzione che crea una card per ogni membro del team
 function creaTeamMemberCard(member) {
   return `
-    <div class="col-12 col-md-6 col-lg-4 mb-4">
-      <div class="card w-100 member-card">
+      <div class="card w-100 member-card shadow">
         <div class="d-flex align-items-center p-2">
           <img src="${member.img}" alt="${member.name}" >
           <div>
-            <h5 class="card-title mb-2">${member.name}</h5>
+            <h5 class="card-title mb-2 bold">${member.name}</h5>
             <p class="card-text mb-2">${member.role}</p>
             <a href="mailto:${member.email}" class="btn btn-primary btn-sm mybtn">${member.email}</a>
           </div>
         </div>
       </div>
-    </div>
   `;
 }
 
 // Funzione che stampa le card dei membri del team nel container
 function printTeamMembers() {
-  let row = `
-    <div class="container">
-      <div class="row ">
-  `;
+  let row = ``;
   for (let key in teamMembers) {
     const member = teamMembers[key];
-    row += creaTeamMemberCard(member);
-  };
-  row += `
+    row += `
+      <div class="col-12 col-md-8 col-lg-6 d-flex justify-content-center mb-3">
+        ${creaTeamMemberCard(member)}
       </div>
-    </div>
-  `;
+    `;
+  }
   teamContainer.innerHTML = row;
 }

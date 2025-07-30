@@ -6,10 +6,27 @@
     --mot-dark: #000000;
 }
 
+/* Utilities */
+.bold {
+    font-weight: bold;
+}
+
+.mybtn {
+    background-color: var(--mot-primary);
+    border: none;
+    color: var(--mot-lighter);
+}
+
+.mybtn:hover {
+    background-color: var(--mot-secondary);
+    color: var(--mot-lighter);
+}
+
+
 body {
     background-color: var(--mot-background);
     color: var(--mot-dark);
-    font-family: "Open Sans", sans-serif;
+    font-family: "Luckiest Guy", cursive, "Open Sans", sans-serif;
 }
 
 h1 {
@@ -25,18 +42,30 @@ img {
     margin-right: 15px;
 }
 
-.mybtn {
-    background-color: var(--mot-primary);
-    border: none;
-    color: var(--mot-lighter);
-}
-
-.mybtn:hover {
-    background-color: var(--mot-secondary);
-    color: var(--mot-lighter);
-}
-
 .member-card {
-    max-width: 350px;
+    width: 100%;
+    max-width: 600px;
+    min-width: 300px;
     border-radius: 30px;
+    background-color: var(--mot-lighter);
+}
+
+
+@media (max-width: 600px) {
+    .member-card img {
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .member-card img {
+        width: 100px;
+        height: 100px;
+        margin-right: 12px;
+    }
+
+
 }
