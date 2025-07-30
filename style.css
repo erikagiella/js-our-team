@@ -1,7 +1,42 @@
+:root {
+    --mot-primary: #15616D;
+    --mot-secondary: #63b1bd;
+    --mot-background: #03B5AA;
+    --mot-lighter: #ffffff;
+    --mot-dark: #000000;
+}
+
+body {
+    background-color: var(--mot-background);
+    color: var(--mot-dark);
+    font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+    font-weight: bolder;
+    font-size: 3rem;
+}
+
 img {
-    width: 70px;
-    height: 70px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
     border-radius: 20%;
     margin-right: 15px;
+}
+
+.mybtn {
+    background-color: var(--mot-primary);
+    border: none;
+    color: var(--mot-lighter);
+}
+
+.mybtn:hover {
+    background-color: var(--mot-secondary);
+    color: var(--mot-lighter);
+}
+
+.member-card {
+    max-width: 350px;
+    border-radius: 30px;
 }

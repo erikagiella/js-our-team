@@ -48,7 +48,6 @@ printTeamMembers();
 for (let key in teamMembers) {
   const member = teamMembers[key];
   console.log(`Nome: ${member.name}, Ruolo: ${member.role}, Email: ${member.email}`);
-  creaTeamMemberCard(member);
 }
 
 
@@ -56,13 +55,13 @@ for (let key in teamMembers) {
 function creaTeamMemberCard(member) {
   return `
     <div class="col-12 col-md-6 col-lg-4 mb-4">
-      <div class="card w-100">
-        <div class="d-flex align-items-center p-3">
+      <div class="card w-100 member-card">
+        <div class="d-flex align-items-center p-2">
           <img src="${member.img}" alt="${member.name}" >
           <div>
-            <h5 class="card-title mb-1">${member.name}</h5>
-            <p class="card-text mb-1">${member.role}</p>
-            <a href="mailto:${member.email}" class="btn btn-primary btn-sm">${member.email}</a>
+            <h5 class="card-title mb-2">${member.name}</h5>
+            <p class="card-text mb-2">${member.role}</p>
+            <a href="mailto:${member.email}" class="btn btn-primary btn-sm mybtn">${member.email}</a>
           </div>
         </div>
       </div>
@@ -74,7 +73,7 @@ function creaTeamMemberCard(member) {
 function printTeamMembers() {
   let row = `
     <div class="container">
-      <div class="row justify-content-center">
+      <div class="row ">
   `;
   for (let key in teamMembers) {
     const member = teamMembers[key];
