@@ -44,13 +44,6 @@ const teamContainer = document.getElementById("team-container");
 printTeamMembers();
 
 
-// Ciclo l'array teamMembers e stampo i dati in console
-for (let key in teamMembers) {
-  const member = teamMembers[key];
-  console.log(`Nome: ${member.name}, Ruolo: ${member.role}, Email: ${member.email}`);
-}
-
-
 // Gestione form aggiunta membro
 const addMemberForm = document.getElementById('add-member-form');
 // Aggiungo un event listener al form per gestire l'invio
@@ -88,10 +81,10 @@ function creaTeamMemberCard(member) {
 // Funzione che stampa le card dei membri del team nel container
 function printTeamMembers() {
   let row = ``;
-  for (let key in teamMembers) {
-    const member = teamMembers[key];
+  for (let i = 0; i < teamMembers.length; i++) {
+    const member = teamMembers[i];
     row += `
-      <div class="d-flex justify-content-center mb-3 p-1">
+      <div class="col-12 col-md-12 col-lg-6 col-xl-6 d-flex justify-content-center mb-3 p-1">
         ${creaTeamMemberCard(member)}
       </div>
     `;
