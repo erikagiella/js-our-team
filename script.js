@@ -91,7 +91,7 @@ function printTeamMembers() {
   for (let key in teamMembers) {
     const member = teamMembers[key];
     row += `
-      <div class="col-12 col-md-8 col-lg-6 d-flex justify-content-center mb-3">
+      <div class="d-flex justify-content-center mb-3 p-1">
         ${creaTeamMemberCard(member)}
       </div>
     `;
